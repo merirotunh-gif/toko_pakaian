@@ -1,0 +1,626 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #f8f1e7;
+    --cream-light: #fffaf3;
+    --cream-dark: #eadcca;
+
+    --brown: #5a3e2b;
+    --brown-dark: #3d291d;
+    --brown-light: #8b684f;
+
+    --text: #3f342d;
+    --text-light: #7b6b60;
+
+    --white: #ffffff;
+
+    --shadow: 0 10px 30px rgba(80, 52, 35, 0.10);
+    --shadow-hover: 0 15px 35px rgba(80, 52, 35, 0.16);
+
+    --radius: 16px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream-light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: rgba(255, 250, 243, 0.96);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(80, 52, 35, 0.06);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: var(--brown-dark);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: var(--brown);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--brown-light);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    margin-top: 35px;
+    padding: 90px 60px;
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            135deg,
+            #f3e6d5,
+            #fffaf3
+        );
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(139, 104, 79, 0.08);
+    border-radius: 50%;
+    right: -80px;
+    top: -80px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 15px 0;
+    color: var(--brown-dark);
+    max-width: 700px;
+}
+
+.hero p {
+    max-width: 620px;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.badge {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--brown);
+    background: #ead8c4;
+    padding: 7px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--brown);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(90, 62, 43, 0.20);
+}
+
+.btn:hover {
+    background: var(--brown-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(90, 62, 43, 0.25);
+}
+
+.btn.small {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 35px 0;
+}
+
+.category {
+    display: block;
+    padding: 30px;
+    background: var(--white);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.category:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+    border-color: #c9ab8d;
+}
+
+.category h3 {
+    color: var(--brown-dark);
+    margin-top: 0;
+}
+
+.category p {
+    color: var(--text-light);
+}
+
+
+/* =========================
+   PRODUCT
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-img {
+    height: 280px;
+    background: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-body {
+    padding: 22px;
+}
+
+.product-body h3 {
+    margin-top: 0;
+    color: var(--brown-dark);
+}
+
+.product-body p {
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.product-body strong {
+    font-size: 19px;
+    color: var(--brown);
+}
+
+
+/* =========================
+   DETAIL
+========================= */
+
+.detail {
+    margin: 45px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+}
+
+.detail-img {
+    height: 480px;
+    background: var(--cream);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail h1 {
+    color: var(--brown-dark);
+}
+
+.detail p {
+    color: var(--text-light);
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    margin: 25px 0;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+}
+
+label {
+    display: block;
+    margin-top: 17px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: var(--brown-dark);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d8c7b6;
+    border-radius: 9px;
+    background: #fffdf9;
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--brown-light);
+    box-shadow: 0 0 0 3px rgba(139, 104, 79, 0.10);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    margin-top: 20px;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    width: 100%;
+    background: var(--white);
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee3d8;
+    text-align: left;
+}
+
+th {
+    background: var(--brown);
+    color: var(--white);
+    font-weight: 600;
+}
+
+td {
+    color: var(--text);
+}
+
+tr:hover td {
+    background: #fffaf4;
+}
+
+.table-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 9px;
+    border: 1px solid var(--cream-dark);
+}
+
+
+/* =========================
+   PAGE HEAD
+========================= */
+
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 35px 0;
+}
+
+.page-head h1,
+.page-head h2 {
+    color: var(--brown-dark);
+    margin: 0;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-box {
+    width: 420px;
+    max-width: 90%;
+    margin: 80px auto;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+}
+
+.login-box h1,
+.login-box h2 {
+    color: var(--brown-dark);
+    text-align: center;
+}
+
+.login-box p {
+    color: var(--text-light);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: var(--white);
+    padding: 40px;
+    margin: 35px 0;
+    border-radius: 20px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    line-height: 1.8;
+}
+
+.about h1,
+.about h2,
+.about h3 {
+    color: var(--brown-dark);
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+.preview {
+    margin-top: 15px;
+}
+
+.preview img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 70px;
+    padding: 35px 25px;
+    text-align: center;
+    background: var(--brown-dark);
+    color: #f8eee4;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* =========================
+   ALERT
+========================= */
+
+.alert {
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 15px 0;
+    background: #f3e4d4;
+    color: var(--brown-dark);
+    border: 1px solid #dec5aa;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .cards,
+    .grid,
+    .detail {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 55px 25px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .page-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .detail {
+        padding: 20px;
+    }
+
+    .detail-img {
+        height: 350px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .brand {
+        font-size: 21px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 4px 5px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .product-img {
+        height: 240px;
+    }
+
+    .login-box {
+        padding: 25px;
+    }
+}
